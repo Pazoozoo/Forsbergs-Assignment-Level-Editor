@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8419326073173407632}
   - component: {fileID: 8419326073173407639}
   - component: {fileID: 8419326073173407638}
-  - component: {fileID: 1205579872855114019}
+  - component: {fileID: 7378572165111177044}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1205579872855114019
+--- !u!114 &7378572165111177044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,9 +160,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8419326073173407635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 947b66384de1b3644890fc4a2b89cd03, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fe0380fbc803f64aa179adfb36c924e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileMaterial: {fileID: 0}
   border: {fileID: 8419326072641609683}
 --- !u!1 &8419326073764922175
 GameObject:
