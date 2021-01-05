@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe0380fbc803f64aa179adfb36c924e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileMaterial: {fileID: 0}
   border: {fileID: 8419326072641609683}
 --- !u!1 &8419326073764922175
 GameObject:
@@ -175,6 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8419326073764922172}
   - component: {fileID: 8419326073764922147}
+  - component: {fileID: -2859147805728952149}
   - component: {fileID: 8419326073764922146}
   m_Layer: 5
   m_Name: HUD_Tile
@@ -212,6 +212,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8419326073764922175}
   m_CullTransparentMesh: 1
+--- !u!114 &-2859147805728952149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8419326073764922175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8d186c6435d4e43919935427c7b9c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileMaterial: {fileID: 0}
+  tileColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8419326073764922146
 MonoBehaviour:
   m_ObjectHideFlags: 0

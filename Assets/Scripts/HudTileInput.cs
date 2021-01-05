@@ -3,9 +3,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class HudTileInput : MonoBehaviour, IPointerDownHandler {
-    public Material tileMaterial;
+    Material _tileMaterial;
     public Image border;
 
+    public void SetUp(Material mat) {
+        _tileMaterial = mat;
+        GetComponent<Image>().color = mat.color;
+    }
     public void OnPointerDown(PointerEventData eventData) {
         SelectThisTile();
     }
@@ -15,11 +19,13 @@ public class HudTileInput : MonoBehaviour, IPointerDownHandler {
     }
 
     void OnDestroy() {
-        FindObjectOfType<EventManager>().tileSelected.RemoveListener(DisableHighlight);
+        var eventManager = FindObjectOfType<EventManager>();
+        if (eventManager != null)
+            eventManager.tileSelected.RemoveListener(DisableHighlight);
     }
 
     void SelectThisTile() {
-        FindObjectOfType<GameManager>().selectedMaterial = tileMaterial;
+        FindObjectOfType<GameManager>().selectedMaterial = _tileMaterial;
         FindObjectOfType<EventManager>().tileSelected.Invoke();
         border.enabled = true;
     }
