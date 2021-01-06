@@ -2,13 +2,16 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class HudTileInput : MonoBehaviour, IPointerDownHandler {
-    Material _tileMaterial;
+public class HudTile : MonoBehaviour, IPointerDownHandler {
     public Image border;
+    Material _tileMaterial;
+    int _materialIndex;
 
-    public void SetUp(Material mat) {
-        _tileMaterial = mat;
-        GetComponent<Image>().color = mat.color;
+    public void SetUp(int index) {
+        var gm = FindObjectOfType<MaterialManager>();
+        _materialIndex = Mathf.Clamp(index, 0, gm.materials.Length);
+        _tileMaterial = gm.materials[_materialIndex];
+        GetComponent<Image>().color = _tileMaterial.color;
     }
     public void OnPointerDown(PointerEventData eventData) {
         SelectThisTile();
@@ -25,7 +28,7 @@ public class HudTileInput : MonoBehaviour, IPointerDownHandler {
     }
 
     void SelectThisTile() {
-        FindObjectOfType<GameManager>().selectedMaterial = _tileMaterial;
+        FindObjectOfType<MaterialManager>().SelectMaterial(_materialIndex);
         FindObjectOfType<EventManager>().tileSelected.Invoke();
         border.enabled = true;
     }
