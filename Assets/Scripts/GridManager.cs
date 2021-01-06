@@ -54,7 +54,7 @@ public class GridManager : MonoBehaviour {
         DrawNewGrid();
     }
 
-    public void ClearGrid() {
+    void ClearGrid() {
         foreach (var tile in _tiles) {
             Destroy(tile.gameObject);
         }
