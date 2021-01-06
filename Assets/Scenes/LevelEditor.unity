@@ -1958,6 +1958,10 @@ PrefabInstance:
       propertyPath: tileMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 956760081c9714545a98618a2f68b8ac, type: 2}
+    - target: {fileID: 8419326072641609683, guid: c10ea24334f671440a1610d68e5b9ae4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8419326073173407633, guid: c10ea24334f671440a1610d68e5b9ae4, type: 3}
       propertyPath: m_Enabled
       value: 0
