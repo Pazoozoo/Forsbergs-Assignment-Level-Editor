@@ -1,17 +1,34 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-/// <summary>
-/// This script allows the user to change settings directly
-/// from the parent object of the HUD_Tile prefab
-/// </summary>
-
 public class HudTileSettings : MonoBehaviour {
-    public int materialIndex;
-    public string tileName;
+    public Image border;
+    Material _tileMaterial;
+    public int MaterialIndex { get; private set; }
 
-    void Awake() {
-        GetComponentInChildren<HudTile>().SetUp(materialIndex);
-        GetComponent<Text>().text = tileName;
+    public void SetUp(int index) {
+        var mm = FindObjectOfType<MaterialManager>();
+        MaterialIndex = Mathf.Clamp(index, 0, mm.materials.Length);
+        _tileMaterial = mm.materials[MaterialIndex];
+        GetComponent<Image>().color = _tileMaterial.color;
+    }
+
+    public void EnableHighlight() {
+        border.enabled = true;
+    }
+
+    void Start() {
+        FindObjectOfType<EventManager>().tileSelected.AddListener(DisableHighlight);
+    }
+
+    void OnDestroy() {
+        var eventManager = FindObjectOfType<EventManager>();
+        if (eventManager != null)
+            eventManager.tileSelected.RemoveListener(DisableHighlight);
+    }
+
+    void DisableHighlight() {
+        border.enabled = false;
     }
 }
